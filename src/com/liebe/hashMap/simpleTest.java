@@ -1,9 +1,6 @@
 package com.liebe.hashMap;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by sjtu on 16-4-1.
@@ -15,6 +12,7 @@ public class simpleTest {
         map.put("2", "2nd");
         map.put("3", "3rd");
         System.out.println("1 old value "+map.put("1","1st2"));
+
 
 //        System.out.println(map);
 
