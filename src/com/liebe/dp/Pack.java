@@ -29,7 +29,7 @@ public class Pack {
 
         for(int i=1;i<=len;i++){
             for(int j=0;j<=volume;j++){
-                if(j>cost[i-1])
+                if(j>=cost[i-1])
                     dp[i][j] = Math.max(dp[i-1][j],dp[i-1][j-cost[i-1]]+value[i-1]);
                 else
                     dp[i][j] = dp[i-1][j];
