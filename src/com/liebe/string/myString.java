@@ -2,6 +2,7 @@ package com.liebe.string;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * Created by sjtu on 16-4-3.
@@ -219,6 +220,26 @@ public class myString {
 
     }
 
+//找到字串中第一个只出现一次的字符
+    public char getFirstOnly(String string){
+        HashMap<Character,Integer> hm = new HashMap<>();
+        int len = string.length();
+        for(int i=0;i<len;i++){
+            if(hm.containsKey(string.charAt(i)))
+                hm.put(string.charAt(i),hm.get(string.charAt(i))+1);
+            else
+                hm.put(string.charAt(i),1);
+        }
+        char c = 0;
+        for(int i=0;i<len;i++){
+            if(hm.get(string.charAt(i)) == 1){
+                c = string.charAt(i);
+                break;
+            }
+        }
+        return c;
+    }
+
     public static void main(String args[]){
         myString ms = new myString();
 //        String s = "hello world";
@@ -236,9 +257,9 @@ public class myString {
 //        System.out.println(ms.kmp(s,p));
 //        String s2 = s.substring(0,6);
 //        System.out.println(s2);
-        int[] next = ms.getNext2(s);
-        for(int i=0;i<next.length;i++)
-            System.out.print(" "+next[i]);
+//        int[] next = ms.getNext2(s);
+//        for(int i=0;i<next.length;i++)
+//            System.out.print(" "+next[i]);
 
 //        String s = "I'm a student hello ";
 //        String result = ms.reverseWord(s);
@@ -247,5 +268,7 @@ public class myString {
 //        char[] array = new char[]{'a','b','v','f'};
 //        System.out.println(Arrays.toString(array));
 //        System.out.println(new String(array));
+
+        System.out.println(ms.getFirstOnly("abcebc"));
     }
 }

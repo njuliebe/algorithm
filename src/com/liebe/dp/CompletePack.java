@@ -13,5 +13,33 @@ package com.liebe.dp;
  * 将一个较大的钱，不超过1000的人民币，兑换成数量不限的100、50、10、5、2、1的组合
  */
 public class CompletePack {
+    private int[] value;
+    private int M;
 
+    public CompletePack(int[] value, int M){
+        this.value = value;
+        this.M = M;
+    }
+
+    public int getSolution(){
+        int len = value.length;
+        int[] d = new int[101];
+        for(int i=1;i<=len;i++){
+            for(int j=0;j<=M;j++)
+                if(j>=value[i-1])
+                d[j] = Math.max(d[j],d[j-value[i-1]]+value[i-1]);
+            for(int k=0;k<=M;k++)
+                System.out.print(d[k]+" ");
+            System.out.println();
+        }
+        return d[100];
+    }
+
+    public static void main(String[] args){
+        int[] value = new int[]{10,5,2,1};
+        int M = 100;
+
+        CompletePack cp = new CompletePack(value,M);
+        System.out.println(cp.getSolution());
+    }
 }
