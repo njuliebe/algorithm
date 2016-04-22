@@ -24,7 +24,7 @@ public class myArray {
             array[minKey] = array[i];
             array[i] = tmp;
             System.out.println(array[i]);
-            System.out.println(this.getClass().getName());
+//            System.out.println(this.getClass().getName());
         }
     }
 
